@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { createContext } from "react"
 
-// type ThemeContextType = "light" | "dark"
-type Theme = "light" | "dark"
+type ThemeType = "light" | "dark"
 
 interface ThemeContextType {
-  theme: Theme
+  theme: ThemeType
   toggleTheme?: () => void
 }
 
@@ -22,7 +21,31 @@ function App() {
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id="theme"></div>
+      <div className="App" id="theme">
+        <ContactsArea>
+          <ContactsBar>
+            <SideMenu />
+            <SearchBar />
+          </ContactsBar>
+          <ContactsList>
+            <ContactItem />
+            <ContactItem />
+            <ContactItem />
+          </ContactsList>
+        </ContactsArea>
+        <ChatArea>
+          <ChatMenu>
+            <ChatMenuInfo />
+            <ChatMenuButtons />
+          </ChatMenu>
+          <ChatDisplay />
+          <ChatMessageArea>
+            <ChatMessageAttach />
+            <ChatMessageInput />
+            <ChatMessageButtons />
+          </ChatMessageArea>
+        </ChatArea>
+      </div>
     </ThemeContext.Provider>
   )
 }
