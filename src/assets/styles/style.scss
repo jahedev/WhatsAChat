@@ -1,89 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 :root {
-    /* default colors -- light theme */
-    --text-color: #2F3640;
-    --stroke-color: #B3B3B3;
-    --bg-main-color: #F5F6FA;
-    --bg-search-color: #E4E4E4;
-    --bg-contacts-color: #F5F6FA;
-    --bg-contacts-item-color: #E2EDF6;
-    --bg-contacts-item-selected-color: #40739E;
-    --bg-contacts-profile-color: #8C7AE6;
-    --bg-chat-color: #737887;
+  /* default colors -- light theme */
+  --text-color: #2f3640;
+  --stroke-color: #b3b3b3;
+  --bg-main-color: #f5f6fa;
+  --bg-search-color: #e4e4e4;
+  --bg-contacts-color: #f5f6fa;
+  --bg-contacts-item-color: #e2edf6;
+  --bg-contacts-item-selected-color: #40739e;
+  --bg-contacts-profile-color: #8c7ae6;
+  --bg-chat-color: #737887;
+}
+
+body {
+  height: 100%;
 }
 
 #dark-theme {
-    --text-color: #DCDDE1;
-    --stroke-color: #2F3640;
-    --bg-main-color: #2F3640;
-    --bg-search-color: #6E778B;
-    --bg-contacts-color: #353B48;
-    --bg-contacts-item-color: #414857;
-    --bg-contacts-item-selected-color: #40739E;
-    --bg-contacts-profile-color: #8C7AE6;
-    --bg-chat-color: #737887;
-    // background-color: cyan;
+  --text-color: #dcdde1;
+  --stroke-color: #2f3640;
+  --bg-main-color: #2f3640;
+  --bg-search-color: #6e778b;
+  --bg-contacts-color: #353b48;
+  --bg-contacts-item-color: #414857;
+  --bg-contacts-item-selected-color: #40739e;
+  --bg-contacts-profile-color: #8c7ae6;
+  --bg-chat-color: #737887;
+  // background-color: cyan;
 }
 
 .App {
-    background-color: var(--bg-main-color);
-    color: var(--text-color)
+  background-color: var(--bg-main-color);
+  color: var(--text-color);
+  display: flex;
+  width: 100vw;
+  height: 100vh;
 }
 
 .contacts {
-    &-top {
-        background-color: var(--bg-main-color);
+  display: flex;
+  flex-direction: column;
+  width: 25%;
 
-        &__menu-button {
+  &-top {
+    background-color: var(--bg-main-color);
+    width: 100%;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        }
-
-        &__searchbar {
-            & input {
-                background-color: var(--bg-search-color);
-            }
-        }
+    &__menu-button {
     }
 
-    &-list {
-        background-color: var(--bg-contacts-color);
-
-        &__item {
-            background-color: var(--bg-contacts-item-color);
-        }
-
-        &__item.contact-selected {
-            background-color: var(--bg-contacts-item-selected-color);
-        }
+    &__searchbar {
+      & input {
+        background-color: var(--bg-search-color);
+        border-radius: 20px;
+      }
     }
+  }
+
+  &-list {
+    background-color: var(--bg-contacts-color);
+
+    &__item {
+      background-color: var(--bg-contacts-item-color);
+    }
+
+    &__item.contact-selected {
+      background-color: var(--bg-contacts-item-selected-color);
+    }
+  }
 }
 
 .chat {
-    &-top {
-        background-color: var(--bg-main-color);
+  width: 100%;
+  &-top {
+    background-color: var(--bg-main-color);
 
-        &__info {
-            &__recipient-name {}
-            &__activity-status {}
-        }
-
-        &__buttons {}
+    &__info {
+      &__recipient-name {
+      }
+      &__activity-status {
+      }
     }
 
-    &-display {
-        background-color: var(--bg-chat-color);
-        &__message {
-            /* missing color */
-        }
+    &__buttons {
+    }
+  }
 
-        &__message.user-message {
-            /* missing color */
-        }
+  &-display {
+    background-color: var(--bg-chat-color);
+    &__message {
+      /* missing color */
     }
 
-    &-bottom {
-        background-color: var(--bg-contacts-color);
-        &__attach {}
-        &__textarea{}
-        &__buttons {}
+    &__message.user-message {
+      /* missing color */
     }
+  }
+
+  &-bottom {
+    background-color: var(--bg-contacts-color);
+    &__attach {
+    }
+    &__textarea {
+    }
+    &__buttons {
+    }
+  }
 }
