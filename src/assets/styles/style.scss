@@ -26,4 +26,23 @@
 
 .App {
     background-color: var(--bg-main-color);
+    color: var(--text-color)
+}
+
+.contacts {
+    &-top {
+        background-color: var(--bg-main-color);
+
+        &__menu-button {
+
+        }
+
+        &__searchbar {
+            
+        }
+    }
+
+    &-list {
+        background-color: var(--bg-contacts-color);
+    }
 }

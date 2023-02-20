@@ -10,7 +10,7 @@ export default function ChatDisplayMessage({
   message,
 }: ChatDisplayMessageProps) {
   return (
-    <div className={`chat-display__message ${isUser && "user-message"}`}>
+    <div className={`chat-display__message ${isUser ? "user-message" : ""}`}>
       {message}
     </div>
   )

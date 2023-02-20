@@ -29,11 +29,11 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id={theme}>
-        <div className="contacts-area">
+        <div className="contacts">
           <ContactsTop />
           <ContactsList />
         </div>
-        <div className="chat-area">
+        <div className="chat">
           <ChatTop
             recipientName="Firstname Lastname"
             activityStatus="last seen 8 minutes ago"

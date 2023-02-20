@@ -12,7 +12,7 @@ export default function ContactsListItem({
   lastMessage,
 }: ContactsListItemProp) {
   return (
-    <div className={`contacts-list__item ${isSelected && "contact-selected"}`}>
+    <div className={`contacts-list__item ${isSelected ? "contact-selected" : ''}`}>
       <h4 className="contact-list__item__name">{contactName}</h4>
       <h4 className="contact-list__item__message">{lastMessage}</h4>
     </div>
