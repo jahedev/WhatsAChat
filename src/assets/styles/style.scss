@@ -38,11 +38,52 @@
         }
 
         &__searchbar {
-            
+            & input {
+                background-color: var(--bg-search-color);
+            }
         }
     }
 
     &-list {
         background-color: var(--bg-contacts-color);
+
+        &__item {
+            background-color: var(--bg-contacts-item-color);
+        }
+
+        &__item.contact-selected {
+            background-color: var(--bg-contacts-item-selected-color);
+        }
+    }
+}
+
+.chat {
+    &-top {
+        background-color: var(--bg-main-color);
+
+        &__info {
+            &__recipient-name {}
+            &__activity-status {}
+        }
+
+        &__buttons {}
+    }
+
+    &-display {
+        background-color: var(--bg-chat-color);
+        &__message {
+            /* missing color */
+        }
+
+        &__message.user-message {
+            /* missing color */
+        }
+    }
+
+    &-bottom {
+        background-color: var(--bg-contacts-color);
+        &__attach {}
+        &__textarea{}
+        &__buttons {}
     }
 }
