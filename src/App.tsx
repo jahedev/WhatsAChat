@@ -6,6 +6,7 @@ import ChatDisplayMessage from './components/chat/ChatDisplayMessage'
 import ChatTop from './components/chat/ChatTop'
 import ContactsList from './components/contacts/ContactsList'
 import ContactsTop from './components/contacts/ContactsTop'
+import './assets/styles/reset.scss'
 import './assets/styles/style.scss'
 
 type ThemeType = 'light-theme' | 'dark-theme'
