@@ -50,16 +50,30 @@ body {
     width: 100%;
     min-height: 50px;
     display: flex;
+    // flex: 1 1 auto;
     justify-content: space-between;
     align-items: center;
 
     &__menu-button {
+      display: flex;
+      justify-content: center;
+      width: 80px;
+      & span {
+        font-size: 2.4rem;
+      }
     }
 
     &__searchbar {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      padding-right: 20px;
       & input {
         background-color: var(--bg-search-color);
         border-radius: 20px;
+        border: 1px solid black;
+        height: 35px;
+        width: 100%;
       }
     }
   }
