@@ -7,14 +7,14 @@ import ChatTop from "./components/chat/ChatTop"
 import ContactsList from "./components/contacts/ContactsList"
 import ContactsTop from "./components/contacts/ContactsTop"
 
-type ThemeType = "light" | "dark"
+type ThemeType = "theme_light" | "theme_dark"
 
 interface ThemeContextType {
   theme: ThemeType
   toggleTheme?: () => void
 }
 
-const defaultTheme: ThemeContextType = { theme: "dark" }
+const defaultTheme: ThemeContextType = { theme: "theme_dark" }
 
 export const ThemeContext = createContext<ThemeContextType>(defaultTheme)
 
@@ -22,12 +22,12 @@ function App() {
   const [theme, setTheme] = useState(defaultTheme.theme)
 
   const toggleTheme = () => {
-    setTheme(theme == "dark" ? "light" : "dark")
+    setTheme(theme == "theme_dark" ? "theme_light" : "theme_dark")
   }
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <div className="App" id="theme">
+      <div className="App" id={theme}>
         <div className="contacts-area">
           <ContactsTop />
           <ContactsList />
