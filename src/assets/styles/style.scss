@@ -24,7 +24,7 @@ body {
   --bg-search-color: #6e778b;
   --bg-contacts-color: #353b48;
   --bg-contacts-item-color: #414857;
-  --bg-contacts-item-hover-color: #77a9d4;
+  --bg-contacts-item-hover-color: #295070;
   --bg-contacts-item-selected-color: #40739e;
   --bg-contacts-profile-color: #8c7ae6;
   --bg-chat-color: #737887;
@@ -47,7 +47,7 @@ body {
   &-top {
     background-color: var(--bg-main-color);
     width: 100%;
-    min-height: 50px;
+    min-height: 60px;
     display: flex;
     // flex: 1 1 auto;
     justify-content: space-between;
@@ -69,10 +69,25 @@ body {
       padding-right: 20px;
       & input {
         background-color: var(--bg-search-color);
-        border-radius: 20px;
-        border: 1px solid black;
-        height: 35px;
+        color: var(--text-color);
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-radius: 10px;
+        border: 0;
+        height: 40px;
         width: 100%;
+        outline: none;
+        padding-left: 20px;
+
+        &::placeholder {
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: var(--text-color);
+        }
+
+        &:focus {
+          border: 0;
+        }
       }
     }
   }

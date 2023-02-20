@@ -16,7 +16,7 @@ interface ThemeContextType {
   toggleTheme?: () => void
 }
 
-const defaultTheme: ThemeContextType = { theme: 'light-theme' }
+const defaultTheme: ThemeContextType = { theme: 'dark-theme' }
 
 export const ThemeContext = createContext<ThemeContextType>(defaultTheme)
 

@@ -7,7 +7,12 @@ export default function ContactsTopBar() {
         <span className='material-symbols-outlined'>menu</span>
       </div>
       <div className='contacts-top__searchbar'>
-        <input type='search' name='contacts-search' id='' />
+        <input
+          type='search'
+          name='contacts-search'
+          placeholder='Search'
+          id='contacts-searchbar'
+        />
       </div>
     </div>
   )
