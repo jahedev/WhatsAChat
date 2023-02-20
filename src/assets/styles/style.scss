@@ -1,0 +1,29 @@
+:root {
+    /* default colors -- light theme */
+    --text-color: #2F3640;
+    --stroke-color: #B3B3B3;
+    --bg-main-color: #F5F6FA;
+    --bg-search-color: #E4E4E4;
+    --bg-contacts-color: #F5F6FA;
+    --bg-contacts-item-color: #E2EDF6;
+    --bg-contacts-item-selected-color: #40739E;
+    --bg-contacts-profile-color: #8C7AE6;
+    --bg-chat-color: #737887;
+}
+
+#dark-theme {
+    --text-color: #DCDDE1;
+    --stroke-color: #2F3640;
+    --bg-main-color: #2F3640;
+    --bg-search-color: #6E778B;
+    --bg-contacts-color: #353B48;
+    --bg-contacts-item-color: #414857;
+    --bg-contacts-item-selected-color: #40739E;
+    --bg-contacts-profile-color: #8C7AE6;
+    --bg-chat-color: #737887;
+    // background-color: cyan;
+}
+
+.App {
+    background-color: var(--bg-main-color);
+}

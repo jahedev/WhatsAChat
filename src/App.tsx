@@ -6,15 +6,16 @@ import ChatDisplayMessage from "./components/chat/ChatDisplayMessage"
 import ChatTop from "./components/chat/ChatTop"
 import ContactsList from "./components/contacts/ContactsList"
 import ContactsTop from "./components/contacts/ContactsTop"
+import "./assets/styles/style.scss"
 
-type ThemeType = "theme_light" | "theme_dark"
+type ThemeType = "light-theme" | "dark-theme"
 
 interface ThemeContextType {
   theme: ThemeType
   toggleTheme?: () => void
 }
 
-const defaultTheme: ThemeContextType = { theme: "theme_dark" }
+const defaultTheme: ThemeContextType = { theme: "light-theme" }
 
 export const ThemeContext = createContext<ThemeContextType>(defaultTheme)
 
@@ -22,7 +23,7 @@ function App() {
   const [theme, setTheme] = useState(defaultTheme.theme)
 
   const toggleTheme = () => {
-    setTheme(theme == "theme_dark" ? "theme_light" : "theme_dark")
+    setTheme(theme == "dark-theme" ? "light-theme" : "dark-theme")
   }
 
   return (
@@ -55,6 +56,7 @@ function App() {
             </div>
           </ChatBottom>
         </div>
+        {/* <button onClick={() => toggleTheme()}>Change Theme</button> */}
       </div>
     </ThemeContext.Provider>
   )
