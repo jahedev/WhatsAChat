@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { createContext } from "react"
+import ContactsList from "./components/contacts/ContactsList"
+import ContactsTop from "./components/contacts/ContactsTop"
 
 type ThemeType = "light" | "dark"
 
@@ -23,26 +25,11 @@ function App() {
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="App" id="theme">
         <div className="contacts-area">
-          <div className="contacts-top">
-            <div className="contacts-top__menu-button"></div>
-            <div className="contacts-top__searchbar"></div>
-          </div>
-          <div className="contacts-list">
-            <div className="contacts-list__item"></div>
-            <div className="contacts-list__item contacts-selected"></div>
-            <div className="contacts-list__item"></div>
-          </div>
+          <ContactsTop />
+          <ContactsList />
         </div>
         <div className="chat-area">
-          <div className="chat-top">
-            <div className="chat-top__info"></div>
-            <div className="chat-top__buttons">
-              <div className="chat-top__buttons__search"></div>
-              <div className="chat-top__buttons__call"></div>
-              <div className="chat-top__buttons__info"></div>
-              <div className="chat-top__buttons__menu"></div>
-            </div>
-          </div>
+          
           <div className="chat-display">
             <div className="chat-display__message"></div>
             <div className="chat-display__message user-message"></div>
