@@ -1,13 +1,19 @@
 import React from "react"
 
-export default function ChatTop() {
+interface ChatTopProps {
+  recipientName: string
+  activityStatus: string
+}
+
+export default function ChatTop({
+  recipientName,
+  activityStatus,
+}: ChatTopProps) {
   return (
     <div className="chat-top">
       <div className="chat-top__info">
-        <h5 className="chat-top__info__recipient-name">First Last</h5>
-        <h6 className="chat-top__info__activity-status">
-          last seen 8 minutes ago
-        </h6>
+        <h5 className="chat-top__info__recipient-name">{recipientName}</h5>
+        <h6 className="chat-top__info__activity-status">{activityStatus}</h6>
       </div>
       <div className="chat-top__buttons">
         <div className="chat-top__buttons__search"></div>

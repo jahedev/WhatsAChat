@@ -4,9 +4,19 @@ import ContactsListItem from "./ContactsListItem"
 export default function ContactsList() {
   return (
     <div className="contacts-list">
-      <ContactsListItem message="Hey, whattchu up to?" />
-      <ContactsListItem message="Not much, how about you?" isUser={true} />
-      <ContactsListItem message="Same, same" />
+      <ContactsListItem
+        contactName="Arthur Morgan"
+        lastMessage="Hey, whattchu up to?"
+      />
+      <ContactsListItem
+        contactName="Charles Smith"
+        lastMessage="np"
+        isSelected={true}
+      />
+      <ContactsListItem
+        contactName="Arnold Barney"
+        lastMessage="sorry, I can't"
+      />
     </div>
   )
 }

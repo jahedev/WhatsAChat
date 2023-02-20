@@ -1,17 +1,20 @@
 import React from "react"
 
 interface ContactsListItemProp {
-  isUser?: boolean
-  message: string
+  isSelected?: boolean
+  contactName: string
+  lastMessage: string
 }
 
 export default function ContactsListItem({
-  isUser,
-  message,
+  isSelected,
+  contactName,
+  lastMessage,
 }: ContactsListItemProp) {
   return (
-    <div className={`contacts-list__item ${isUser && "contact-selected"}`}>
-      {message}
+    <div className={`contacts-list__item ${isSelected && "contact-selected"}`}>
+      <h4 className="contact-list__item__name">{contactName}</h4>
+      <h4 className="contact-list__item__message">{lastMessage}</h4>
     </div>
   )
 }

@@ -1,5 +1,9 @@
 import { useState } from "react"
 import { createContext } from "react"
+import ChatBottom from "./components/chat/ChatBottom"
+import ChatDisplay from "./components/chat/ChatDisplay"
+import ChatDisplayMessage from "./components/chat/ChatDisplayMessage"
+import ChatTop from "./components/chat/ChatTop"
 import ContactsList from "./components/contacts/ContactsList"
 import ContactsTop from "./components/contacts/ContactsTop"
 
@@ -29,21 +33,27 @@ function App() {
           <ContactsList />
         </div>
         <div className="chat-area">
-          
-          <div className="chat-display">
-            <div className="chat-display__message"></div>
-            <div className="chat-display__message user-message"></div>
-            <div className="chat-display__message"></div>
-            <div className="chat-display__message user-message"></div>
-          </div>
-          <div className="chat-bottom">
+          <ChatTop
+            recipientName="Firstname Lastname"
+            activityStatus="last seen 8 minutes ago"
+          />
+          <ChatDisplay>
+            <ChatDisplayMessage message="Hey" />
+            <ChatDisplayMessage message="What's up?" isUser={true} />
+            <ChatDisplayMessage message="I think I left my phone at your place..." />
+            <ChatDisplayMessage
+              message="No worries, I'll go check"
+              isUser={true}
+            />
+          </ChatDisplay>
+          <ChatBottom>
             <div className="chat-bottom__attach"></div>
             <div className="chat-bottom__textarea"></div>
             <div className="chat-bottom__buttons">
               <div className="chat-bottom__buttons__emoji"></div>
               <div className="chat-bottom__buttons__voice"></div>
             </div>
-          </div>
+          </ChatBottom>
         </div>
       </div>
     </ThemeContext.Provider>
