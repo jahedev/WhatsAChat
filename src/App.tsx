@@ -8,6 +8,9 @@ import ContactsList from './components/contacts/ContactsList'
 import ContactsTop from './components/contacts/ContactsTop'
 import './assets/styles/reset.scss'
 import './assets/styles/style.scss'
+import MaterialButton, {
+  ButtonType as BT,
+} from './components/common/MaterialButton'
 
 type ThemeType = 'light-theme' | 'dark-theme'
 
@@ -49,11 +52,24 @@ function App() {
             />
           </ChatDisplay>
           <ChatBottom>
-            <div className='chat-bottom__attach'></div>
-            <div className='chat-bottom__textarea'></div>
+            <div className='chat-bottom__attach'>
+              <MaterialButton buttonType={BT.ATTACH} />
+            </div>
+            <div className='chat-bottom__textarea'>
+              <input
+                type='text'
+                name='message-input'
+                placeholder='Type a message...'
+                id='message-input'
+              />
+            </div>
             <div className='chat-bottom__buttons'>
-              <div className='chat-bottom__buttons__emoji'></div>
-              <div className='chat-bottom__buttons__voice'></div>
+              <div className='chat-bottom__buttons__emoji'>
+                <MaterialButton buttonType={BT.EMOJI} />
+              </div>
+              <div className='chat-bottom__buttons__voice'>
+                <MaterialButton buttonType={BT.VOICE} />
+              </div>
             </div>
           </ChatBottom>
         </div>

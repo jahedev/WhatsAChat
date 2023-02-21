@@ -1,3 +1,10 @@
+// Variables
+@use 'mixins' as mx;
+
+// Variables
+$topbar-height: 60px;
+$bottombar-height: 40px;
+
 :root {
   /* default colors -- light theme */
   --text-color: #2f3640;
@@ -43,11 +50,12 @@ body {
   display: flex;
   flex-direction: column;
   width: 25%;
+  min-width: 400px;
 
   &-top {
     background-color: var(--bg-main-color);
     width: 100%;
-    min-height: 60px;
+    min-height: $topbar-height;
     display: flex;
     // flex: 1 1 auto;
     justify-content: space-between;
@@ -145,17 +153,32 @@ body {
 
 .chat {
   width: 100%;
+  @include mx.flex-col;
+
   &-top {
     background-color: var(--bg-main-color);
+    @include mx.flex;
+    justify-content: space-between;
+    min-height: $topbar-height;
+    padding: 0 10px 0 10px;
 
     &__info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
       &__recipient-name {
+        font-size: 1rem;
       }
       &__activity-status {
+        font-size: 0.76rem;
       }
     }
 
     &__buttons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
   }
 
@@ -172,11 +195,27 @@ body {
 
   &-bottom {
     background-color: var(--bg-contacts-color);
+    @include mx.flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: $bottombar-height;
     &__attach {
+      @include mx.flex-center-aj;
     }
     &__textarea {
+      @include mx.flex-center-aj;
+      width: 100%;
+      height: 100%;
+      & input {
+        width: 100%;
+        height: 70%;
+        border: none;
+        outline: none;
+        // background-color:
+      }
     }
     &__buttons {
+      @include mx.flex;
     }
   }
 }
