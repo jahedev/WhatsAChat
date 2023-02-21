@@ -27,14 +27,14 @@ body {
 #dark-theme {
   --text-color: #dcdde1;
   --stroke-color: #2f3640;
-  --bg-main-color: #2f3640;
+  --bg-main-color: #222222;
   --bg-search-color: #6e778b;
-  --bg-contacts-color: #353b48;
-  --bg-contacts-item-color: #414857;
-  --bg-contacts-item-hover-color: #295070;
-  --bg-contacts-item-selected-color: #40739e;
+  --bg-contacts-color: #222222;
+  --bg-contacts-item-color: #2c2c2c;
+  --bg-contacts-item-hover-color: #274a52;
+  --bg-contacts-item-selected-color: #1b7d8f;
   --bg-contacts-profile-color: #8c7ae6;
-  --bg-chat-color: #737887;
+  --bg-chat-color: #363636;
   // background-color: cyan;
 }
 
@@ -185,8 +185,26 @@ body {
   &-display {
     background-color: var(--bg-chat-color);
     height: 100%;
+
+    &-container {
+      @include mx.flex-col;
+      //   background-color: #1b7d8f;
+      height: 100%;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      overflow-y: auto;
+    }
+
     &__message {
       /* missing color */
+      width: 100%;
+    }
+
+    &__message.user-message {
+      width: 100%;
+      @include mx.flex;
+      justify-content: flex-end;
     }
 
     &__message.user-message {
