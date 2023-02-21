@@ -184,6 +184,7 @@ body {
 
   &-display {
     background-color: var(--bg-chat-color);
+    height: 100%;
     &__message {
       /* missing color */
     }
@@ -199,6 +200,7 @@ body {
     justify-content: space-between;
     // padding: 0 10px;
     height: $bottombar-height;
+    margin-top: auto;
     &__attach {
       @include mx.flex-center-aj;
       padding-left: 15px;
@@ -207,13 +209,14 @@ body {
       @include mx.flex-center-aj;
       width: 100%;
       height: 100%;
-      & input {
+      & #message-input {
         width: 100%;
         height: 90%;
         border: none;
         outline: none;
         background-color: var(--bg-contacts-color);
         padding-left: 15px;
+        font-size: 0.9rem;
       }
     }
     &__buttons {
