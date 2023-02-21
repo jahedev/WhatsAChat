@@ -15,13 +15,9 @@ export default function ContactsList() {
         !e.target.classList.contains('contacts-list__item')) { return }
 
     if (e.target.classList.contains('contacts-list__item')) {
-      const idx = Array.from(e.target.parentNode.children).indexOf(e.target)
       // const _children = e.target.parentNode.childNodes
-
-      if (selectedContact < 0) {
-        // no contacts selected
-        // e.target.parentNode.children
-      }
+      const idx = Array.from(e.target.parentNode.children).indexOf(e.target)
+      setSelectedContact(idx)
     }
   }
 
@@ -30,15 +26,17 @@ export default function ContactsList() {
       <ContactsListItem
         contactName='Arthur Morgan'
         lastMessage='Hey, whattchu up to?'
+        isSelected={selectedContact === 0}
       />
       <ContactsListItem
         contactName='Charles Smith'
         lastMessage='np'
-        isSelected={true}
+        isSelected={selectedContact === 1}
       />
       <ContactsListItem
         contactName='Arnold Barney'
         lastMessage="sorry, I can't"
+        isSelected={selectedContact === 2}
       />
     </div>
   )
