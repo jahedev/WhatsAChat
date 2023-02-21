@@ -197,10 +197,11 @@ body {
     background-color: var(--bg-contacts-color);
     @include mx.flex;
     justify-content: space-between;
-    padding: 0 10px;
+    // padding: 0 10px;
     height: $bottombar-height;
     &__attach {
       @include mx.flex-center-aj;
+      padding-left: 15px;
     }
     &__textarea {
       @include mx.flex-center-aj;
@@ -208,14 +209,17 @@ body {
       height: 100%;
       & input {
         width: 100%;
-        height: 70%;
+        height: 90%;
         border: none;
         outline: none;
-        // background-color:
+        background-color: var(--bg-contacts-color);
+        padding-left: 15px;
       }
     }
     &__buttons {
-      @include mx.flex;
+      @include mx.flex-center-aj;
+      gap: 8px;
+      padding-right: 15px;
     }
   }
 }
