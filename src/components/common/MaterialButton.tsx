@@ -11,30 +11,38 @@ export enum ButtonType {
   VOICE,
 }
 
+interface MaterialButtonProps {
+  buttonType: ButtonType
+  handleClick: React.MouseEventHandler<HTMLButtonElement>
+}
+
 const buttonSpan = (buttonType: ButtonType) => {
-  const icon = (iconName: string) => (
-    <span className='material-symbols-outlined'>{iconName}</span>
-  )
+  //   const icon = (iconName: string) => (
+  //     <span className='material-symbols-outlined'>{iconName}</span>
+  //   )
 
   switch (buttonType) {
     case ButtonType.MENU:
-      return icon('menu')
+      return 'menu'
     case ButtonType.SEARCH:
-      return icon('search')
+      return 'search'
     case ButtonType.CALL:
-      return icon('call')
+      return 'call'
     case ButtonType.INFO:
-      return icon('info')
+      return 'info'
     case ButtonType.MORE:
-      return icon('more_vert')
+      return 'more_vert'
     case ButtonType.ATTACH:
-      return icon('attach_file')
+      return 'attach_file'
     case ButtonType.EMOJI:
-      return icon('mood')
+      return 'mood'
     case ButtonType.VOICE:
-      return icon('mic')
+      return 'mic'
   }
 }
 
-export default ({ buttonType }: { buttonType: ButtonType }) =>
-  buttonSpan(buttonType)
+export default ({ buttonType, handleClick }: MaterialButtonProps) => (
+  <button className='material-btn' onClick={handleClick}>
+    <span className='material-symbols-outlined'>{buttonSpan(buttonType)}</span>
+  </button>
+)

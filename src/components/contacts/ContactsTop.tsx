@@ -1,10 +1,11 @@
 import React from 'react'
+import MaterialButton, { ButtonType as BT } from '../common/MaterialButton'
 
 export default function ContactsTopBar() {
   return (
     <div className='contacts-top'>
       <div className='contacts-top__menu-button'>
-        <span className='material-symbols-outlined'>menu</span>
+        <MaterialButton buttonType={BT.MENU} />
       </div>
       <div className='contacts-top__searchbar'>
         <input
