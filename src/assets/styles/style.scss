@@ -124,6 +124,7 @@ body {
       }
 
       &__photo {
+        pointer-events: none;
         & span img {
           border-radius: 100%;
           max-width: 56px;
@@ -137,6 +138,7 @@ body {
         gap: 8px;
         height: 100%;
         width: 100%;
+        pointer-events: none;
 
         &__name {
           font-size: 1rem;
@@ -190,7 +192,9 @@ body {
       @include mx.flex-col;
       //   background-color: #1b7d8f;
       height: 100%;
-      width: 80%;
+      width: 90%;
+      max-width: 1000px;
+      padding-top: 20px;
       margin-left: auto;
       margin-right: auto;
       overflow-y: auto;
@@ -199,10 +203,23 @@ body {
     &__message {
       /* missing color */
       width: 100%;
+      &__bubble {
+        background-color: #1b7d8f;
+        padding: 8px 15px;
+        margin-bottom: 2px;
+        border-radius: 10px;
+        // border-top-left-radius: 50px;
+        // border-top-right-radius: 50px;
+        // border-bottom-right-radius: 50px;
+      }
+      //   &.user-message &__bubble {
+      //     border-bottom-left-radius: 50px;
+      //     border-bottom-right-radius: 10px;
+      //     border-top-right-radius: 10px;
+      //   }
     }
 
     &__message.user-message {
-      width: 100%;
       @include mx.flex;
       justify-content: flex-end;
     }

@@ -1,4 +1,4 @@
-import React from "react"
+import React from 'react'
 
 interface ChatDisplayMessageProps {
   isUser?: boolean
@@ -10,8 +10,8 @@ export default function ChatDisplayMessage({
   message,
 }: ChatDisplayMessageProps) {
   return (
-    <div className={`chat-display__message ${isUser ? "user-message" : ""}`}>
-      {message}
+    <div className={`chat-display__message ${isUser ? 'user-message' : ''}`}>
+      <span className='chat-display__message__bubble'>{message}</span>
     </div>
   )
 }

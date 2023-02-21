@@ -50,6 +50,7 @@ function App() {
               message="No worries, I'll go check"
               isUser={true}
             />
+            <ChatDisplayMessage message="I didn't find it." isUser={true} />
           </ChatDisplay>
           <ChatBottom>
             <div className='chat-bottom__attach'>
