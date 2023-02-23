@@ -205,7 +205,9 @@ body {
 
     &__message {
       /* missing color */
+      @include mx.flex;
       width: 100%;
+      overflow: hidden;
       &__bubble {
         background-color: var(--bg-message-color);
         padding: 8px 15px;
@@ -223,7 +225,6 @@ body {
     }
 
     &__message.user-message {
-      @include mx.flex;
       justify-content: flex-end;
     }
 
@@ -259,8 +260,8 @@ body {
     }
     &__buttons {
       @include mx.flex-center-aj;
-      gap: 8px;
-      padding-right: 15px;
+      gap: 2px;
+      padding: 0 10px 0 10px;
     }
   }
 }
@@ -273,13 +274,12 @@ body {
   border: 2px solid transparent;
   border-radius: 5px;
   padding: 4px 6px;
+  transition: all 100ms ease;
 
   &:hover {
     background-color: var(--bg-button-hover-color);
+  }
+  &:active {
     border: 2px solid var(--bg-contacts-item-selected-color);
-    // background-color: var(--text-color);
-    // color: var(--bg-main-color);
-    // filter: brightness(85%);
-    // transition: all 300ms ease;
   }
 }
