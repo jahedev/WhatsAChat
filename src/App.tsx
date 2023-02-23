@@ -32,6 +32,10 @@ function App() {
     setTheme(theme == 'dark-theme' ? 'light-theme' : 'dark-theme')
   }
 
+  const openSideMenu = () => {
+    showSideMenu(true)
+  }
+
   useEffect(() => {
     const sideMenu = document.querySelector('.side-menu')
     sideMenu?.addEventListener('click', (e: any) => {
@@ -46,7 +50,7 @@ function App() {
       <div className='App' id={theme}>
         <SideMenu enabled={sideMenuVisible} />
         <div className='contacts'>
-          <ContactsTop />
+          <ContactsTop menuBtn={openSideMenu} />
           <ContactsList />
         </div>
         <div className='chat'>

@@ -299,6 +299,7 @@ body {
   }
 
   &__side-bar {
+    transition: 0.5s;
     height: 100%;
     width: 350px;
     overflow: hidden;
@@ -313,7 +314,6 @@ body {
     filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.5));
 
     &__show {
-      transition: 1s;
       transform: translate(350px, 0);
     }
   }
