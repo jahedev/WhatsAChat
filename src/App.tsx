@@ -57,6 +57,7 @@ function App() {
           <ChatTop
             recipientName='Firstname Lastname'
             activityStatus='last seen 8 minutes ago'
+            tmpNightMode={toggleTheme}
           />
           <ChatDisplay>
             <ChatDisplayMessage message='Hey' />

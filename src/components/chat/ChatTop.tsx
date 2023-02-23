@@ -4,11 +4,13 @@ import MaterialButton, { ButtonType as BT } from '../common/MaterialButton'
 interface ChatTopProps {
   recipientName: string
   activityStatus: string
+  tmpNightMode: React.MouseEventHandler<HTMLButtonElement>
 }
 
 export default function ChatTop({
   recipientName,
   activityStatus,
+  tmpNightMode,
 }: ChatTopProps) {
   return (
     <div className='chat-top'>
@@ -22,6 +24,9 @@ export default function ChatTop({
         </div>
         <div className='chat-top__buttons__call'>
           <MaterialButton buttonType={BT.CALL} />
+        </div>
+        <div className='chat-top__buttons__night'>
+          <MaterialButton buttonType={BT.NIGHT} handleClick={tmpNightMode} />
         </div>
         <div className='chat-top__buttons__info'>
           <MaterialButton buttonType={BT.INFO} />

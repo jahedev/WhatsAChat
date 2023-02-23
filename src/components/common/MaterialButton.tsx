@@ -15,7 +15,6 @@ export enum ButtonType {
 interface MaterialButtonProps {
   buttonType: ButtonType
   handleClick: React.MouseEventHandler<HTMLButtonElement>
-  // handleClick: Function
 }
 
 const buttonSpan = (buttonType: ButtonType) => {
