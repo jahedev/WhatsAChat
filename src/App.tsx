@@ -19,7 +19,7 @@ interface ThemeContextType {
   toggleTheme?: () => void
 }
 
-const defaultTheme: ThemeContextType = { theme: 'dark-theme' }
+const defaultTheme: ThemeContextType = { theme: 'light-theme' }
 
 export const ThemeContext = createContext<ThemeContextType>(defaultTheme)
 
@@ -33,6 +33,9 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className='App' id={theme}>
+        <div className='side-menu'>
+          <div className='side-menu__side-bar'>Sidebar</div>
+        </div>
         <div className='contacts'>
           <ContactsTop />
           <ContactsList />

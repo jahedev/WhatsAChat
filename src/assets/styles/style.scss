@@ -283,3 +283,28 @@ body {
     border: 2px solid var(--bg-contacts-item-selected-color);
   }
 }
+
+.side-menu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: #222222b4;
+  display: hidden;
+
+  &__side-bar {
+    height: 100%;
+    width: 350px;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-chat-color);
+    overflow-x: hidden;
+    padding-top: 60px;
+    white-space: nowrap;
+    filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.5));
+  }
+}
