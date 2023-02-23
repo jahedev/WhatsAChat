@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { createContext } from 'react'
 import ChatBottom from './components/chat/ChatBottom'
 import ChatDisplay from './components/chat/ChatDisplay'
@@ -11,6 +11,7 @@ import './assets/styles/style.scss'
 import MaterialButton, {
   ButtonType as BT,
 } from './components/common/MaterialButton'
+import SideMenu from './components/SideMenu'
 
 type ThemeType = 'light-theme' | 'dark-theme'
 
@@ -25,17 +26,25 @@ export const ThemeContext = createContext<ThemeContextType>(defaultTheme)
 
 function App() {
   const [theme, setTheme] = useState(defaultTheme.theme)
+  const [sideMenuVisible, showSideMenu] = useState(false)
 
   const toggleTheme = () => {
     setTheme(theme == 'dark-theme' ? 'light-theme' : 'dark-theme')
   }
 
+  useEffect(() => {
+    const sideMenu = document.querySelector('.side-menu')
+    sideMenu?.addEventListener('click', (e: any) => {
+      if (!e.target.classList.contains('side-menu__side-bar')) {
+        showSideMenu(false)
+      }
+    })
+  }, [])
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className='App' id={theme}>
-        <div className='side-menu'>
-          <div className='side-menu__side-bar'>Sidebar</div>
-        </div>
+        <SideMenu enabled={sideMenuVisible} />
         <div className='contacts'>
           <ContactsTop />
           <ContactsList />

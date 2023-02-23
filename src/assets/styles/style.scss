@@ -292,19 +292,29 @@ body {
   top: 0;
   left: 0;
   background-color: #222222b4;
-  display: hidden;
+  visibility: hidden;
+
+  &__show {
+    visibility: visible;
+  }
 
   &__side-bar {
     height: 100%;
     width: 350px;
+    overflow: hidden;
     position: fixed;
     z-index: 20;
     top: 0;
-    left: 0;
+    left: -350px;
     background-color: var(--bg-chat-color);
     overflow-x: hidden;
     padding-top: 60px;
     white-space: nowrap;
     filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.5));
+
+    &__show {
+      transition: 1s;
+      transform: translate(350px, 0);
+    }
   }
 }
