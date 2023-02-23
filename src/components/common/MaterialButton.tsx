@@ -9,6 +9,7 @@ export enum ButtonType {
   ATTACH,
   EMOJI,
   VOICE,
+  NIGHT,
 }
 
 interface MaterialButtonProps {
@@ -39,6 +40,8 @@ const buttonSpan = (buttonType: ButtonType) => {
       return 'mood'
     case ButtonType.VOICE:
       return 'mic'
+    case ButtonType.NIGHT:
+      return 'dark_mode'
   }
 }
 

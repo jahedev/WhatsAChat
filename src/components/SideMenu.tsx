@@ -7,9 +7,7 @@ export default function SideMenu({ enabled }: { enabled: boolean }) {
         className={`side-menu__side-bar ${
           enabled ? 'side-menu__side-bar__show' : ''
         }`}
-      >
-        Sidebar
-      </div>
+      ></div>
     </div>
   )
 }
