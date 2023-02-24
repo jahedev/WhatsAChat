@@ -37,9 +37,12 @@ function App() {
   }
 
   useEffect(() => {
-    const sideMenu = document.querySelector('.side-menu')
+    const sideMenu = document.querySelector('.sidemenu')
     sideMenu?.addEventListener('click', (e: any) => {
-      if (!e.target.classList.contains('side-menu__side-bar')) {
+      if (
+        e.target.classList.contains('sidemenu') ||
+        e.target.classList.contains('sidemenu-list-item')
+      ) {
         showSideMenu(false)
       }
     })
@@ -48,7 +51,7 @@ function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className='App' id={theme}>
-        <SideMenu enabled={sideMenuVisible} />
+        <SideMenu enabled={sideMenuVisible} setVisibility={showSideMenu} />
         <div className='contacts'>
           <ContactsTop menuBtn={openSideMenu} />
           <ContactsList />

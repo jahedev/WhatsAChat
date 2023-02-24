@@ -76,8 +76,8 @@ body {
     &__searchbar {
       display: flex;
       justify-content: flex-end;
-      width: 100%;
-      padding-right: 20px;
+      width: 85%;
+      padding-right: 25px;
       & input {
         background-color: var(--bg-search-color);
         color: var(--text-color);
@@ -271,6 +271,7 @@ body {
         border: none;
         outline: none;
         background-color: var(--bg-main-color);
+        color: var(--text-color);
         padding-left: 15px;
         font-size: 0.9rem;
       }
@@ -331,11 +332,64 @@ body {
 
     &__show {
       transform: translate(350px, 0);
+    }
 
-      & .content {
-        @include mx.flex-col;
-        width: 100%;
-        height: 100%;
+    &__content {
+      @include mx.flex-col;
+      width: 100%;
+      height: 100%;
+
+      &__top {
+        display: flex;
+        align-items: center;
+        min-height: 60px;
+
+        & .menubtn {
+          display: flex;
+          justify-content: center;
+
+          width: 80px;
+          & span {
+            font-size: 2.4rem;
+          }
+
+          & .material-btn {
+            background-color: var(--bg-chat-color);
+            display: flex;
+            justify-content: center;
+          }
+        }
+
+        & .appbanner {
+          padding-left: 15px;
+          & h1 {
+            font-size: 2.2rem;
+            font-family: Inconsolata, monospace;
+            font-weight: 600;
+          }
+        }
+      }
+
+      &__main {
+        padding-top: 30px;
+        & ul {
+          list-style: none;
+          @include mx.flex-col;
+
+          & li {
+            // background-color: red;
+            font-size: 1.8rem;
+            height: 60px;
+            @include mx.flex-center-aj;
+            color: var(--text-color);
+
+            &:hover {
+              background-color: var(--bg-contacts-item-color);
+              cursor: pointer;
+              transition: all 0.25s ease;
+            }
+          }
+        }
       }
     }
   }
