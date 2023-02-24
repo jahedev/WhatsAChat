@@ -301,7 +301,7 @@ body {
   }
 }
 
-.side-menu {
+.sidemenu {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -315,8 +315,8 @@ body {
     visibility: visible;
   }
 
-  &__side-bar {
-    transition: 0.5s;
+  &__bar {
+    transition: 0.25s;
     height: 100%;
     width: 350px;
     overflow: hidden;
@@ -326,12 +326,17 @@ body {
     left: -350px;
     background-color: var(--bg-chat-color);
     overflow-x: hidden;
-    padding-top: 60px;
     white-space: nowrap;
     filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.5));
 
     &__show {
       transform: translate(350px, 0);
+
+      & .content {
+        @include mx.flex-col;
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 }
