@@ -2,18 +2,122 @@
 @use 'mixins' as mx;
 @import './reset.scss';
 
-.login-page {
-  @include mx.flex;
+$default-margin-bottom: 20px;
+
+.user-auth {
+  @include mx.flex-center-aj;
   width: 100vw;
   height: 100vh;
+  background-color: #439A97;
+
+  &-dialog {
+    @include mx.flex-col;
+    align-items: center;
+    padding: 50px 20px;
+    min-width: 300px;
+    max-width: 450px;
+    width: 400px;
+    min-height: 500px;
+    background-color: #ebedec;
+
+    & h2 {
+      font-size: 1.4rem;
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-weight: 500;
+      margin-bottom: $default-margin-bottom;
+    }
+  }
+
+  &-switch {
+    $border-radius: 7px;
+    @include mx.flex-center-aj;
+    width: 70%;
+    height: 40px;
+    margin-bottom: $default-margin-bottom;
+    width: 300px;
+
+    &-btn {
+      width: 50%;
+      height: 100%;
+      background-color: white;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background-color: #aab1d5;
+    }
+
+    &-btn.login {
+      border-top-left-radius: $border-radius;
+      border-bottom-left-radius: $border-radius;
+    }
+
+    &-btn.signup {
+      border-top-right-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+
+    &-btn.selected {
+      background-color: #3b478a;
+      // background-color: #2B3467;
+      color: white;
+    }
+
+    &-btn:not(.selected):hover {
+      background-color: #9ea6cf;
+    }
+  }
+
 }
 
-.signup {
-  @include mx.flex-col-center-aj;
-  background-color: red;
-  width: 50%;
+.user-auth-container {
+  width: 100%;
+  &.signup {
+    @include mx.flex-col-center-aj;
+  }
+
+  &.login {
+    @include mx.flex-col-center-aj;
+  }
+
+  & form {
+    width: 100%;
+
+    & .form-section {
+      @include mx.flex-col;
+      padding: 10px;
+      width: 100%;
+  
+  
+      & label {
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        font-size: .8rem;
+        margin-bottom: 5px;
+        padding-left: 5px;
+      }
+  
+      & input {
+        font-family: Inter, Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        width: 98%;
+        height: 45px;
+        padding: 4px 16px;
+        border: none;
+        outline: 1px solid #439A97;
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+
+      
+    }
+
+
+  }
+
+  
 }
 
-.login {
-  @include mx.flex-col-center-aj;
-}
+
+
+
+
+
