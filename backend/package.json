@@ -1,0 +1,11 @@
+{
+  "name": "whatsachat-backend",
+  "version": "1.0.0",
+  "description": "The backend for the WhatsAChat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jahed Hossain",
+  "license": "ISC"
+}

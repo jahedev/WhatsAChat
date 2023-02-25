@@ -1,0 +1,19 @@
+// Variables
+@use 'mixins' as mx;
+@import './reset.scss';
+
+.login-page {
+  @include mx.flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.signup {
+  @include mx.flex-col-center-aj;
+  background-color: red;
+  width: 50%;
+}
+
+.login {
+  @include mx.flex-col-center-aj;
+}
