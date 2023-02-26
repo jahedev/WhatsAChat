@@ -4,6 +4,25 @@ import { UserAuthContext } from './UserAuthContext'
 export default function Signup() {
   const auth = useContext(UserAuthContext)
 
+  const registerUser = async (e) => {
+    const { email, password, fullname } = auth!.user
+
+    e.preventDefault()
+    const res = await fetch('http://localhost:5000/api/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+        fullname,
+      }),
+    })
+
+    const data = await res.json()
+  }
+
   return (
     <div className='user-auth-container signup'>
       <form className='login-form' action='#' method='post'>
@@ -44,7 +63,7 @@ export default function Signup() {
           />
         </div>
         <div className='form-section'>
-          <button>Signup</button>
+          <button onClick={registerUser}>Signup</button>
         </div>
       </form>
     </div>
