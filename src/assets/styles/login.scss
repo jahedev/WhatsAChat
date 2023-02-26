@@ -9,7 +9,7 @@ $border-radius: 7px;
   @include mx.flex-center-aj;
   width: 100vw;
   height: 100vh;
-  background-color: #88b4b9;
+  background-color: #4e6e81;
   color: black;
 
   &-dialog {
@@ -48,7 +48,7 @@ $border-radius: 7px;
       background-color: #aab1d5;
       color: black;
       font-family: Inter, Arial, Helvetica, sans-serif;
-      font-size: 0.8rem;
+      font-size: 1rem;
     }
 
     &-btn.login {

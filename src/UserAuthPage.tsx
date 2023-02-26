@@ -19,7 +19,6 @@ export default function UserAuthPage() {
       loginActive ? '' : 'selected'
     }`,
     shownForm: loginActive ? <Login /> : <Signup />,
-    submitBtnText: 'Login',
   }
 
   return (
