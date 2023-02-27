@@ -20,6 +20,14 @@ export default function Login() {
     })
 
     const data = await res.json()
+    const errorMsg = document.querySelector<HTMLElement>('.error-msg')
+
+    if (data.user) {
+      if (errorMsg) errorMsg.innerText = ''
+      alert('Login Successful')
+    } else {
+      if (errorMsg) errorMsg.innerText = 'Your email or password is invalid.'
+    }
   }
 
   return (
@@ -51,6 +59,7 @@ export default function Login() {
         </div>
         <div className='form-section'>
           <button onClick={loginUser}>Login</button>
+          <p className='error-msg'></p>
         </div>
       </form>
     </div>
