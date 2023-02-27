@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { UserAuthContext } from './UserAuthContext'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
   const auth = useContext(UserAuthContext)
+  const navigate = useNavigate()
 
   const loginUser = async (e: any) => {
     const { email, password } = auth!.user
@@ -24,7 +26,8 @@ export default function Login() {
 
     if (data.user) {
       if (errorMsg) errorMsg.innerText = ''
-      alert('Login Successful')
+      localStorage.setItem('token', data.token)
+      navigate('/')
     } else {
       if (errorMsg) errorMsg.innerText = 'Your email or password is invalid.'
     }

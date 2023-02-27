@@ -12,30 +12,33 @@ import ContactsList from './components/contacts/ContactsList'
 import ContactsTop from './components/contacts/ContactsTop'
 import SideMenu from './components/SideMenu'
 
-type ThemeType = 'light-theme' | 'dark-theme'
+import { useNavigate } from 'react-router-dom'
+import { isExpired, decodeToken } from 'react-jwt'
 
+// ----- THEME SETTINGS -----
+type ThemeType = 'light-theme' | 'dark-theme'
 interface ThemeContextType {
   theme: ThemeType
   toggleTheme?: () => void
 }
-
 const defaultTheme: ThemeContextType = { theme: 'light-theme' }
-
 export const ThemeContext = createContext<ThemeContextType>(defaultTheme)
 
 function App() {
   const [theme, setTheme] = useState(defaultTheme.theme)
   const [sideMenuVisible, showSideMenu] = useState(false)
-
   const toggleTheme = () => {
     setTheme(theme == 'dark-theme' ? 'light-theme' : 'dark-theme')
   }
 
+  const navigate = useNavigate()
+
+  // Left Side Menu Open
   const openSideMenu = () => {
     showSideMenu(true)
   }
 
-  useEffect(() => {
+  const closeSideMenuOnBackgroundClick = () => {
     const sideMenu = document.querySelector('.sidemenu')
     sideMenu?.addEventListener('click', (e: any) => {
       if (
@@ -45,6 +48,39 @@ function App() {
         showSideMenu(false)
       }
     })
+  }
+
+  const populateQuote = async () => {
+    const req = await fetch('http://localhost:5000/api/quote', {
+      headers: {
+        'x-access-token': localStorage.getItem('token'),
+      },
+    })
+
+    const data = await req.json()
+    console.debug(data)
+    if (data.status === 'ok') {
+      // navigate('/signup')
+    }
+  }
+
+  const checkUserAuth = () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      const user = decodeToken(token)
+      console.debug(user)
+      if (!user) {
+        localStorage.removeItem('token')
+        navigate('login')
+      } else {
+        populateQuote()
+      }
+    }
+  }
+
+  useEffect(() => {
+    closeSideMenuOnBackgroundClick()
+    checkUserAuth()
   }, [])
 
   return (
