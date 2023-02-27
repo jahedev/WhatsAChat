@@ -1,14 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Login from './components/user-auth/Login'
 import Signup from './components/user-auth/Signup'
 import './assets/styles/reset.scss'
 import './assets/styles/login.scss'
 import { UserAuthContext } from './components/user-auth/UserAuthContext'
 
-export default function UserAuthPage() {
-  const [loginActive, setLoginActive] = useState(true)
+export default function UserAuthPage({ loginPage }: { loginPage: boolean }) {
+  const [loginActive, setLoginActivePrivate] = useState(true)
   const [user, setUser] = useState({ email: '', password: '', fullname: '' })
   const useContextValue = { user, setUser }
+
+  const setLoginActive = (loginStatus: boolean = true) => {
+    // change URL without saving to browser history or reloading
+    if (loginStatus) {
+      window.history.replaceState(null, 'Login', '/login')
+    } else {
+      window.history.replaceState(null, 'Login', '/signup')
+    }
+    setLoginActivePrivate(loginStatus)
+  }
+
+  useEffect(() => {
+    setLoginActive(loginPage)
+  }, [])
 
   const pageProps = {
     header: loginActive ? 'ChatTxt Login' : 'Signup for ChatTxt',

@@ -5,6 +5,8 @@ const cors = require('cors')
 const { MongoClient, ServerApiVersion } = require('mongodb')
 const mongoose = require('mongoose')
 const User = require('./models/user.model')
+const jwt = require('jsonwebtoken')
+
 // 21:56 - https://www.youtube.com/watch?v=Ejg7es3ba2k
 // ----- Configuration -----
 dotenv.config()
@@ -25,6 +27,7 @@ app.post('/', (req, res) => {
   res.send('Express + TypeScript Server')
 })
 
+// ----- SIGNUP ROUTE -----
 app.post('/api/register', async (req, res, next) => {
   const { email, password, fullname } = req.body
   const createdAt = Date()
@@ -42,13 +45,21 @@ app.post('/api/register', async (req, res, next) => {
   }
 })
 
+// ----- LOGIN ROUTE -----
 app.post('/api/login', async (req, res, next) => {
   const { email, password } = req.body
 
   const user = await User.findOne({ email, password })
 
   if (user) {
-    return res.json({ status: 'ok', user: true })
+    const token = jwt.sign(
+      {
+        email: user.email,
+      },
+      process.env.JWT_SECRET
+    )
+
+    return res.json({ status: 'ok', user: true, token })
   } else {
     return res.json({ status: 'ok', user: false })
   }

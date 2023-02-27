@@ -1,11 +1,13 @@
 // Variables
 @use 'mixins' as mx;
+@import './reset.scss';
 
 // Variables
 $topbar-height: 60px;
 $bottombar-height: 40px;
 
 :root {
+  font-family: Inter, Arial, Helvetica, sans-serif;
   /* default colors -- light theme */
   --text-color: #2f3640;
   --stroke-color: #b3b3b3;
@@ -23,7 +25,6 @@ $bottombar-height: 40px;
 
 body {
   height: 100%;
-  font-family: Inter, Arial, Helvetica, sans-serif;
 }
 
 #dark-theme {

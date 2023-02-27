@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react'
-import { createContext } from 'react'
+import { createContext, useEffect, useState } from 'react'
+// import './assets/styles/reset.scss'
+import './assets/styles/style.scss'
 import ChatBottom from './components/chat/ChatBottom'
 import ChatDisplay from './components/chat/ChatDisplay'
 import ChatDisplayMessage from './components/chat/ChatDisplayMessage'
 import ChatTop from './components/chat/ChatTop'
-import ContactsList from './components/contacts/ContactsList'
-import ContactsTop from './components/contacts/ContactsTop'
-import './assets/styles/reset.scss'
-import './assets/styles/style.scss'
 import MaterialButton, {
   ButtonType as BT,
 } from './components/common/MaterialButton'
+import ContactsList from './components/contacts/ContactsList'
+import ContactsTop from './components/contacts/ContactsTop'
 import SideMenu from './components/SideMenu'
 
 type ThemeType = 'light-theme' | 'dark-theme'
