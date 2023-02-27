@@ -23,7 +23,7 @@ console.log(mongoose.connection.readyState)
 app.use(cors())
 app.use(express.json())
 
-app.post('/', (req, res) => {
+app.get('/', (req, res) => {
   res.send('Express + TypeScript Server')
 })
 
@@ -62,6 +62,32 @@ app.post('/api/login', async (req, res, next) => {
     return res.json({ status: 'ok', user: true, token })
   } else {
     return res.json({ status: 'ok', user: false })
+  }
+})
+
+// ----- QUOTE ROUTE -----
+app.get('/api/verifyAuth', async (req, res, next) => {
+  const token = req.headers['x-access-token']
+
+  try {
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
+    const { email } = decodedToken
+    const user = await User.findOne({ email })
+    if (user) {
+      return res.json({
+        status: 'ok',
+        user: true,
+        data: {
+          email: user.email,
+          fullname: user.fullname,
+        },
+      })
+    } else {
+      return res.json({ status: 'ok', user: false, token })
+    }
+  } catch (error) {
+    console.log(error)
+    res.json({ status: 'error', msg: 'Request was invalid.' })
   }
 })
 

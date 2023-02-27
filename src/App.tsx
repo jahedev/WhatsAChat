@@ -50,17 +50,21 @@ function App() {
     })
   }
 
-  const populateQuote = async () => {
-    const req = await fetch('http://localhost:5000/api/quote', {
+  const verifyAuth = async () => {
+    const req = await fetch('http://localhost:5000/api/verifyAuth', {
+      method: 'GET',
+      mode: 'cors',
       headers: {
-        'x-access-token': localStorage.getItem('token'),
+        'x-access-token': localStorage.getItem('token') || '',
       },
     })
 
     const data = await req.json()
     console.debug(data)
-    if (data.status === 'ok') {
-      // navigate('/signup')
+    if (data) {
+      console.log(data.data)
+    } else {
+      console.log('Unable to authenticate')
     }
   }
 
@@ -68,19 +72,19 @@ function App() {
     const token = localStorage.getItem('token')
     if (token) {
       const user = decodeToken(token)
-      console.debug(user)
-      if (!user) {
-        localStorage.removeItem('token')
-        navigate('login')
-      } else {
-        populateQuote()
+      // console.log(user)
+      if (user) {
+        verifyAuth()
       }
+    } else {
+      localStorage.removeItem('token')
+      navigate('login')
     }
   }
 
   useEffect(() => {
-    closeSideMenuOnBackgroundClick()
     checkUserAuth()
+    closeSideMenuOnBackgroundClick()
   }, [])
 
   return (

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react'
 import { UserAuthContext } from './UserAuthContext'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export default function Signup() {
   const auth = useContext(UserAuthContext)
+  const navigate = useNavigate()
 
   const registerUser = async (e) => {
     const { email, password, fullname } = auth!.user
@@ -21,6 +23,11 @@ export default function Signup() {
     })
 
     const data = await res.json()
+    console.log(data.status)
+    if (data?.status === 'ok') {
+      localStorage.removeItem('token')
+      navigate('/')
+    }
   }
 
   return (
