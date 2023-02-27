@@ -12,9 +12,9 @@ const app = express()
 const port = process.env.PORT
 
 // ----- Database Config -----
-const DB_URI = `mongodb+srv://m001-student:fvTFJ5J8vU1dNE2b@bayaanchat.cvrsn7z.mongodb.net/?retryWrites=true&w=majority`
+const DB_URI = process.env.DB_URI
 mongoose.set('strictQuery', false)
-// mongoose.connect(DB_URI)
+mongoose.connect(DB_URI)
 console.log(mongoose.connection.readyState)
 
 // ----- Middleware -----
@@ -29,13 +29,16 @@ app.post('/api/register', async (req, res, next) => {
   const { email, password, fullname } = req.body
   const createdAt = Date()
 
-  const user = await User.create({ email, password, fullname, createdAt })
+  if (!(await User.findOne({ email }))) {
+    await User.create({ email, password, fullname, createdAt })
+  } else {
+    return res.json({ status: 'error', message: 'Duplicate email address.' })
+  }
 
-  res.json({ status: 'ok' })
+  res.json({ status: 'ok', message: 'User created.' })
   try {
   } catch (error) {
-    console.log(error)
-    res.json({ status: 'error' })
+    res.json({ status: 'error', message: 'Internal Server Error.' })
   }
 })
 

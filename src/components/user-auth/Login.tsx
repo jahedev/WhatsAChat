@@ -2,8 +2,25 @@ import React, { useContext } from 'react'
 import { UserAuthContext } from './UserAuthContext'
 
 export default function Login() {
-  // const [user, setUser] = useState({ email: '', password: '' })
   const auth = useContext(UserAuthContext)
+
+  const loginUser = async (e: any) => {
+    const { email, password } = auth!.user
+
+    e.preventDefault()
+    const res = await fetch('http://localhost:5000/api/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+
+    const data = await res.json()
+  }
 
   return (
     <div className='user-auth-container login'>
@@ -33,7 +50,7 @@ export default function Login() {
           />
         </div>
         <div className='form-section'>
-          <button>Login</button>
+          <button onClick={loginUser}>Login</button>
         </div>
       </form>
     </div>
