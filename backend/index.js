@@ -24,7 +24,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-  res.send('Express + TypeScript Server')
+  res.send('Express + TypeScript  Server')
 })
 
 // ----- SIGNUP ROUTE -----
