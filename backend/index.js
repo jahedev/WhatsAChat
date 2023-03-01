@@ -94,3 +94,5 @@ app.get('/api/verifyAuth', async (req, res, next) => {
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)
 })
+
+// TODO: create middleware to verify login
