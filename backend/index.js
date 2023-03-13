@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 })
 
 // ----- ROUTES -----
-app.use('/api', require('./api'))
+app.use('/api', require('./routes/index'))
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`)

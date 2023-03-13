@@ -10,7 +10,7 @@ export default function Login() {
     const { email, password } = auth!.user
 
     e.preventDefault()
-    const res = await fetch('http://localhost:5000/api/login', {
+    const res = await fetch('http://localhost:5000/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

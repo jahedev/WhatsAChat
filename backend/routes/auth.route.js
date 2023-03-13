@@ -1,9 +1,10 @@
-const router = require('express').Router()
-const User = require('./models/user.model')
+const express = require('express')
+const router = express.Router()
+const User = require('../models/user.model')
 const jwt = require('jsonwebtoken')
 
 // ----- SIGNUP ROUTE -----
-app.post('/register', async (req, res, next) => {
+router.post('/register', async (req, res, next) => {
   const { email, password, fullname } = req.body
   const createdAt = Date()
 
@@ -21,7 +22,7 @@ app.post('/register', async (req, res, next) => {
 })
 
 // ----- LOGIN ROUTE -----
-app.post('/login', async (req, res, next) => {
+router.post('/login', async (req, res, next) => {
   const { email, password } = req.body
 
   const user = await User.findOne({ email, password })
@@ -41,7 +42,7 @@ app.post('/login', async (req, res, next) => {
 })
 
 // ----- QUOTE ROUTE -----
-app.get('/verifyAuth', async (req, res, next) => {
+router.get('/verifyAuth', async (req, res, next) => {
   const token = req.headers['x-access-token']
 
   try {
@@ -65,3 +66,5 @@ app.get('/verifyAuth', async (req, res, next) => {
     res.json({ status: 'error', msg: 'Request was invalid.' })
   }
 })
+
+module.exports = router
